@@ -1,7 +1,6 @@
 """Real-time posture correction application."""
 
 import cv2
-import numpy as np
 import mediapipe as mp
 from src.core.config import settings
 from src.core.pose_engine import PoseEngine

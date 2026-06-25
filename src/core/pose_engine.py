@@ -1,5 +1,6 @@
 """MediaPipe Pose wrapper with configurable confidence."""
 
+import cv2
 import mediapipe as mp
 import numpy as np
 from src.core.config import settings
