@@ -19,10 +19,21 @@ Webcam ──> MediaPipe Pose ──> 33 Landmarks ──> Angle Calculator ─�
 - **Configurable thresholds** — detection confidence, bad posture duration
 - **Audio alerts** — beep triggers after sustained bad posture (configurable delay)
 
+## Requirements
+
+- Python 3.8+
+- Webcam
+
 ## Quick Start
 
 ```bash
+# 1. Install dependencies
 pip install -r requirements.txt
+
+# 2. Install MediaPipe (heavy ~200MB with model weights)
+pip install mediapipe
+
+# 3. Run
 python -m src.main
 ```
 
