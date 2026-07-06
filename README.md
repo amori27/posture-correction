@@ -46,6 +46,44 @@ Press `q` to quit.
 | Neck Tilt | < 20° | ≥ 20° |
 | Shoulder Slope | < 15 | ≥ 15 |
 
+## Project Structure
+
+```
+posture-correction/
+├── .github/
+│   ├── ISSUE_TEMPLATE/
+│   │   ├── bug_report.md
+│   │   └── feature_request.md
+│   ├── PULL_REQUEST_TEMPLATE.md
+│   └── workflows/
+│       └── ci-cd.yml
+├── docker/
+│   └── Dockerfile
+├── docs/
+│   ├── API.md
+│   └── ARCHITECTURE.md
+├── scripts/
+│   └── setup.sh
+├── src/
+│   ├── core/
+│   ├── models/
+│   ├── utils/
+│   └── main.py
+├── tests/
+│   ├── test_angle_calculator.py
+│   ├── test_config.py
+│   └── test_video_utils.py
+├── .env.example
+├── .gitignore
+├── CHANGELOG.md
+├── CODE_OF_CONDUCT.md
+├── CONTRIBUTING.md
+├── LICENSE
+├── README.md
+├── requirements.txt
+└── SECURITY.md
+```
+
 ## License
 
 MIT
