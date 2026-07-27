@@ -2,13 +2,15 @@
 
 import cv2
 import mediapipe as mp
+import numpy as np
 from src.core.config import settings
 from src.core.pose_engine import PoseEngine
 from src.core.angle_calculator import neck_tilt, shoulder_slope, classify_posture
 from src.core.alert import AlertSystem
 
 
-def draw_overlay(frame, posture: str, neck: float, slope: float):
+def draw_overlay(frame: np.ndarray, posture: str, neck: float, slope: float) -> None:
+    """Render posture stats as text on *frame*."""
     color = (0, 255, 0) if posture == "good" else (0, 0, 255)
     cv2.putText(frame, f"Posture: {posture}", (20, 40),
                 cv2.FONT_HERSHEY_SIMPLEX, 1, color, 2)
@@ -18,7 +20,8 @@ def draw_overlay(frame, posture: str, neck: float, slope: float):
                 cv2.FONT_HERSHEY_SIMPLEX, 0.7, color, 2)
 
 
-def main():
+def main() -> None:
+    """Entry point: capture video, analyse posture, and alert on slouching."""
     cap = cv2.VideoCapture(settings.camera_id)
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, settings.frame_width)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, settings.frame_height)
