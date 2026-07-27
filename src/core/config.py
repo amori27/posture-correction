@@ -1,7 +1,14 @@
+"""Global settings loaded from environment variables."""
+
 import os
 
 
 class Settings:
+    """Application-wide configuration with sensible defaults.
+
+    All values can be overridden via environment variables.
+    """
+
     min_detection_confidence: float = float(
         os.getenv("MIN_DETECTION_CONFIDENCE", "0.7")
     )
