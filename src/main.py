@@ -12,6 +12,9 @@ from src.core.alert import AlertSystem
 def draw_overlay(frame: np.ndarray, posture: str, neck: float, slope: float) -> None:
     """Render posture stats as text on *frame*."""
     color = (0, 255, 0) if posture == "good" else (0, 0, 255)
+    # Small status swatch in the top-left corner (also keeps the indicator
+    # visible across OpenCV versions with slightly different text metrics).
+    cv2.rectangle(frame, (16, 36), (22, 42), color, -1)
     cv2.putText(frame, f"Posture: {posture}", (20, 40),
                 cv2.FONT_HERSHEY_SIMPLEX, 1, color, 2)
     cv2.putText(frame, f"Neck: {neck:.1f}deg", (20, 80),
